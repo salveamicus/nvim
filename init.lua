@@ -1,17 +1,17 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+      })
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({import = "plugins.init"})
+require("lazy").setup({import = "plugins"})
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<space>ff', builtin.find_files, {})
@@ -40,7 +40,7 @@ vim.api.nvim_set_keymap(
 -- Disable sign column in alpha
 vim.api.nvim_create_autocmd("Filetype", {
     pattern = "alpha", callback = function()
-            vim.opt_local.statuscolumn = ""
+        vim.opt_local.statuscolumn = ""
     end
 })
 
