@@ -47,6 +47,7 @@ vim.api.nvim_create_autocmd("Filetype", {
 vim.o.background = "dark" -- "dark" for dark or "light" for light mode
 
 vim.cmd[[set clipboard+=unnamedplus]]
+vim.cmd[[COQnow --shut-up]]
 
 vim.wo.relativenumber = true
 
